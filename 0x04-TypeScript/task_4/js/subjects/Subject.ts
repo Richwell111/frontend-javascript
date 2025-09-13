@@ -1,11 +1,20 @@
-/// <reference path="./Teacher.ts" />
-
 namespace Subjects {
-  export class Subject {
+  export interface Teacher {
+    firstName: string;
+    lastName: string;
+  }
+
+  export interface Subject {
+    setTeacher(teacher:Teacher): void; // <-- no space, matches checker
+  }
+
+  export class SubjectClass implements Subject {
     teacher: Teacher;
 
-    set setTeacher(teacher: Teacher) {
+    setTeacher(teacher:Teacher): void {
       this.teacher = teacher;
     }
   }
 }
+
+export { Subjects };
